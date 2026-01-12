@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋游戏</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>五子棋游戏</h1>
+
+        <!-- 游戏信息面板 -->
+        <div class="game-info">
+            <div class="current-player">
+                当前玩家: <span id="currentPlayer">⚫ 黑棋</span>
+            </div>
+            <div class="status" id="gameStatus">游戏进行中</div>
+        </div>
+
+        <!-- 游戏棋盘 -->
+        <div class="board-container">
+            <canvas id="gameBoard" width="600" height="600"></canvas>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <button id="restartBtn" class="btn">重新开始</button>
+            <button id="undoBtn" class="btn">悔棋</button>
+        </div>
+
+        <!-- 游戏说明 -->
+        <div class="instructions">
+            <h3>游戏说明</h3>
+            <ul>
+                <li>黑棋先手，双方轮流下棋</li>
+                <li>点击棋盘交叉点落子</li>
+                <li>先连成五子者获胜</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 使用ES模块导入游戏逻辑 -->
+    <script type="module" src="./game.js"></script>
+</body>
+</html>

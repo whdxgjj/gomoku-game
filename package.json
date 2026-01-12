@@ -1,0 +1,17 @@
+{
+  "name": "gomoku-game",
+  "version": "1.0.0",
+  "description": "一个简单的五子棋网页游戏",
+  "main": "index.html",
+  "scripts": {
+    "serve": "npx serve . -p 8080"
+  },
+  "keywords": [
+    "gomoku",
+    "五子棋",
+    "game",
+    "web-game"
+  ],
+  "author": "",
+  "license": "MIT"
+}
