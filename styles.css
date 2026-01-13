@@ -147,10 +147,8 @@ h1 {
         font-size: 1.8em;
     }
 
-    #gameBoard {
-        width: 100%;
-        height: auto;
-    }
+    /* 移除canvas的响应式缩放，避免坐标系不一致问题 */
+    /* 保持固定尺寸确保点击坐标准确 */
 
     .game-info {
         flex-direction: column;

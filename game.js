@@ -16,7 +16,18 @@ class GomokuGame {
     constructor(canvasId) {
         // 获取canvas元素和上下文
         this.canvas = document.getElementById(canvasId);
+
+        // 验证canvas元素是否存在
+        if (!this.canvas) {
+            throw new Error(`找不到ID为 "${canvasId}" 的canvas元素`);
+        }
+
         this.ctx = this.canvas.getContext('2d');
+
+        // 动态计算并设置canvas尺寸
+        const canvasSize = PADDING * 2 + (BOARD_SIZE - 1) * CELL_SIZE;
+        this.canvas.width = canvasSize;
+        this.canvas.height = canvasSize;
 
         // 初始化游戏状态
         this.board = []; // 棋盘数组
@@ -257,8 +268,8 @@ class GomokuGame {
      * 悔棋
      */
     undoMove() {
-        // 如果没有历史记录或游戏已结束，不允许悔棋
-        if (this.history.length === 0 || this.gameOver) {
+        // 如果没有历史记录，不允许悔棋
+        if (this.history.length === 0) {
             return;
         }
 
@@ -268,6 +279,11 @@ class GomokuGame {
 
         // 切换回上一个玩家
         this.currentPlayer = lastMove.player;
+
+        // 如果之前游戏已结束，悔棋后恢复游戏状态
+        if (this.gameOver) {
+            this.gameOver = false;
+        }
 
         // 重绘棋盘
         this.drawBoard();
